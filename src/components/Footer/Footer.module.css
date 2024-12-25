@@ -1,0 +1,47 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
+    position: relative;
+}
+
+.link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.phone {
+    margin-top: 15px;
+}
+
+.phoneText {
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .link {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .phoneText {
+        font-size: 14px;
+    }
+}
