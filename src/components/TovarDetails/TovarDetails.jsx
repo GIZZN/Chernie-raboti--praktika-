@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../routes/Cart/cartSlice.js";
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
+
 export function TovarDetails() {
   let { id } = useParams();
-
   let allItems = useSelector((state) => state.tovari);
   let isAuth = useSelector((state) => state.profile.isAuth);
   let dispatch = useDispatch();
@@ -28,18 +28,19 @@ export function TovarDetails() {
       <div className={s.container}>
         <h1 className={s.title}>{tovar.text}</h1>
         <img className={s.image} src={tovar.img} alt={tovar.text} />
-        <p className={s.description}>{tovar.description || "Описание товара отсутствует."}</p>
-        {isAuth && (
-          <button className={s.addButton} onClick={handleAddToCart}>
-            Добавить в корзину
-          </button>
-        )}
-        <Link to="/tovari" className={s.backButton}>
-          Вернуться к товарам
-        </Link>
+        <p className={s.description}>{tovar.description || "Описание товара"}</p>
+        <div className={s.buttonContainer}>
+          {isAuth && (
+            <button className={s.addButton} onClick={handleAddToCart}>
+              Добавить в корзину
+            </button>
+          )}
+          <Link to="/tovari" className={s.backButton}>
+            Вернуться к товарам
+          </Link>
+        </div>
       </div>
       <Footer />
     </>
-
   );
 }

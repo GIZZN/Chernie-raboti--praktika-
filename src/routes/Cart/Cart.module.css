@@ -33,7 +33,7 @@
 .image {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    object-fit: contain;
     margin-right: 15px;
 }
 
@@ -47,33 +47,111 @@
     color: #aaa;
 }
 
-.clearButton {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #ff4d4f;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.clearButton{      
+    padding: 15px 24px; /* Увеличенные отступы */  
+    background: linear-gradient(135deg, #292828, #515052);     
+    color: #ffffff;      
+    border: none;      
+    border-radius: 40px; /* Увеличенный радиус границы */     
+    cursor: pointer;      
+    font-size: 14px; /* Увеличенный размер шрифта */  
+    font-weight: 700;      
+    letter-spacing: 0.5px;     
+    text-transform: uppercase;      
+    text-decoration: none;     
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease;      
+    position: relative;      
+    overflow: hidden;      
+    z-index: 2;      
+    margin: 5px; /* Расстояние между кнопками */   
+}      
+  
+.clearButton::before{   
+    content: '';   
+    position: absolute;   
+    top: 50%;   
+    left: 50%;   
+    width: 300%;   
+    height: 300%;   
+    background: rgba(255, 251, 0, 0); /* Полупрозрачный цвет */   
+    border-radius: 50%; /* Круглая форма */   
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние */   
+    transition: transform 0.5s ease; /* Плавный переход для анимации */   
+}   
+  
+.clearButton:hover{   
+    transform: translate(-50%, -50%) scale(1); /* Увеличение круга при наведении */   
+}   
+  
+.clearButton:hover {   
+    background: linear-gradient(45deg, #000000, #000000); /* Изменение градиента при наведении */   
+    color: #ffffff; /* Цвет текста при наведении (черный) */   
+    transform: translateY(-5px); /* Подъем кнопки при наведении */   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Тень при наведении */   
+}   
+  
+.clearButton:active{   
+    transform: translateY(2px); /* Уменьшение кнопки при нажатии */   
+}   
+  
+/* Эффект свечения при наведении */   
+.clearButton:hover {   
+    box-shadow: 0 0 20px rgb(255, 0, 0),    
+                0 0 30px rgba(255, 51, 0, 0.37),
+                0 0 40px rgba(255, 196, 0, 0.548); /* Светящийся эффект */   
 }
 
-.clearButton:hover {
-    background-color: #d9363e;
+.payButton{      
+    padding: 15px 24px; /* Увеличенные отступы */  
+    background: linear-gradient(135deg, #292828, #515052);     
+    color: #ffffff;      
+    border: none;      
+    border-radius: 40px; /* Увеличенный радиус границы */     
+    cursor: pointer;      
+    font-size: 14px; /* Увеличенный размер шрифта */  
+    font-weight: 700;      
+    letter-spacing: 0.5px;     
+    text-transform: uppercase;      
+    text-decoration: none;     
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease;      
+    position: relative;      
+    overflow: hidden;      
+    z-index: 2;      
+    margin: 5px; /* Расстояние между кнопками */   
+}      
+  
+.payButton::before{   
+    content: '';   
+    position: absolute;   
+    top: 50%;   
+    left: 50%;   
+    width: 300%;   
+    height: 300%;   
+    background: rgba(255, 251, 0, 0); /* Полупрозрачный цвет */   
+    border-radius: 50%; /* Круглая форма */   
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние */   
+    transition: transform 0.5s ease; /* Плавный переход для анимации */   
+}   
+  
+.payButton:hover{   
+    transform: translate(-50%, -50%) scale(1); /* Увеличение круга при наведении */   
+}   
+  
+.payButton:hover {   
+    background: linear-gradient(45deg, #ffee00, #ffee00); /* Изменение градиента при наведении */   
+    color: #000000; /* Цвет текста при наведении (черный) */   
+    transform: translateY(-5px); /* Подъем кнопки при наведении */   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Тень при наведении */   
+}   
+  
+.payButton:active{   
+    transform: translateY(2px); /* Уменьшение кнопки при нажатии */   
+}   
+  
+/* Эффект свечения при наведении */   
+.payButton:hover {   
+    box-shadow: 0 0 20px rgb(255, 230, 0),    
+                0 0 30px rgba(0, 255, 21, 0.37),
+                0 0 40px rgba(60, 255, 0, 0.548); /* Светящийся эффект */   
 }
 
-.payButton {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: 60px;
-}
-
-.payButton:hover {
-    background-color: #218838;
-}

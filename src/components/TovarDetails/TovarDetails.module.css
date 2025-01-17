@@ -3,8 +3,8 @@
   margin: 35px auto;
   padding: 30px;
   text-align: center;
-  background: linear-gradient(523deg, #0f0f0f,  #c8e05a);
-  color: #eaeaea;
+  background: linear-gradient(523deg, #ffe600,  #d0ff00);
+  color: #000000;
   border-radius: 12px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.89);
   font-family: "Arial", sans-serif;
@@ -14,7 +14,7 @@
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 25px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .image {
@@ -23,53 +23,75 @@
   height: auto;
   margin-bottom: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.856);
+  background-color: #000000d7;
 }
 
 .description {
   font-size: 20px;
   line-height: 1.8;
-  color: #d3d3d3;
+  color: #000000;
   margin-bottom: 30px;
 }
 
-.backButton {
+.buttonContainer {
+  display: flex; /* Для выравнивания кнопок */
+  gap: 10px; /* Отступ между кнопками */
+  margin-top: 20px; /* Отступ сверху */
+  justify-content: center; /* Центрировать кнопки */
+}
+
+.backButton, .addButton {
   display: inline-block;
-  padding: 12px 25px;
+  padding: 15px 30px;
   font-size: 18px;
   font-weight: bold;
-  color: #000000;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
+  color: #ffffff; /* Белый текст */
+  background: linear-gradient(45deg, #000000, #000000); /* Градиентный фон */
   border: none;
-  border-radius: 8px;
+  border-radius: 50px; /* Скругленные углы */
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative; /* Для псевдоэлементов */
+  overflow: hidden; /* Скрытие лишнего содержимого */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Плавный переход */
 }
 
-.backButton:hover {
-  background: linear-gradient(135deg, #000000, #b0b300);
-  transform: translateY(-2px);
+.backButton::before, .addButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 251, 0, 0); /* Полупрозрачный цвет */
+  border-radius: 50%; /* Круглая форма */
+  transform: translate(-50%, -50%) scale(0); /* Начальное состояние */
+  transition: transform 0.5s ease; /* Плавный переход для анимации */
 }
 
-.addButton {
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #000000;
-  background: linear-gradient(135deg, #b0b300, #b0b300);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 15px;
-  transition: all 0.3s ease;
+.backButton:hover::before, .addButton:hover::before {
+  transform: translate(-50%, -50%) scale(1); /* Увеличение круга при наведении */
 }
 
-.addButton:hover {
-  background: linear-gradient(135deg, #b0b300, #b0b300);
-  transform: translateY(-2px);
+.backButton:hover, .addButton:hover {
+  background: linear-gradient(45deg, #ffee00, #ffee00); /* Изменение градиента при наведении */
+  color: #000000; /* Цвет текста при наведении (черный) */
+  transform: translateY(-5px); /* Подъем кнопки при наведении */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Тень при наведении */
 }
+
+.backButton:active, .addButton:active {
+  transform: translateY(2px); /* Уменьшение кнопки при нажатии */
+}
+
+/* Эффект свечения при наведении */
+.backButton:hover, .addButton:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 
+              0 0 30px rgba(0, 0, 0, 0.4), 
+              0 0 40px rgba(0, 0, 0, 0.3); /* Светящийся эффект */
+}
+
 
 @media (max-width: 768px) {
   .title {

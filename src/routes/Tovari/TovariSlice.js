@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
+import screwdriverinfo from "../../assets/screwdriverinfo.png";
+import Hammerinfo from "../../assets/Hammerinfo.png";
+import bolgarkainfo from "../../assets/bolgarkainfo.png";
+import Drillinfo from "../../assets/Drillinfo.png";
+
 import screwdriver from "../../assets/screwdriver.png";
 import Hammer from "../../assets/Hammer.png";
 import bolgarka from "../../assets/bolgarka.png";
@@ -17,14 +22,14 @@ let TovariStore = JSON.parse(localStorage.getItem("tovari")) || [];
 
 let TovariSlice = createSlice({
   name: "tovari",
-  initialState: TovariStore,
+  initialState: [...TovariStore], // Spread operator to create a shallow copy
   reducers: {
     add: (state) => {
       let newItems = [
-        { id: nanoid(), text: "Отвертка", img: screwdriver, isWholesale: false, description: "Отвертка с пластиковым эргономичным покрытием, идеально подходит для работы с мелкими винтами и деталями." },
-        { id: nanoid(), text: "Молоток", img: Hammer, isWholesale: false, description: "Молоток с металлическим стержнем и удобной деревянной ручкой. Используется для забивания гвоздей и мелких работ." },
-        { id: nanoid(), text: "Болгарка", img: bolgarka, isWholesale: false, description: "Угловая шлифмашина (болгарка) для резки, шлифовки и полировки металла, бетона и других материалов." },
-        { id: nanoid(), text: "Дрель", img: Drill, isWholesale: false, description: "Электрическая дрель для сверления отверстий в различных материалах, включая дерево, металл и бетон." },
+        { id: nanoid(), text: "Отвертка", img: screwdriverinfo, isWholesale: false, description: "Отвертка с пластиковым эргономичным покрытием, идеально подходит для работы с мелкими винтами и деталями." },
+        { id: nanoid(), text: "Молоток", img: Hammerinfo, isWholesale: false, description: "Молоток с металлическим стержнем и удобной деревянной ручкой. Используется для забивания гвоздей и мелких работ." },
+        { id: nanoid(), text: "Болгарка", img: bolgarkainfo, isWholesale: false, description: "Угловая шлифмашина (болгарка) для резки, шлифовки и полировки металла, бетона и других материалов." },
+        { id: nanoid(), text: "Дрель", img: Drillinfo, isWholesale: false, description: "Электрическая дрель для сверления отверстий в различных материалах, включая дерево, металл и бетон." },
         { id: nanoid(), text: "Цемент", img: ceMENT, isWholesale: true, description: "Портландцемент, применяемый в строительстве для создания прочных бетонных и строительных конструкций." },
         { id: nanoid(), text: "Кирпичи", img: Kirpichi, isWholesale: true, description: "Красные строительные кирпичи стандартного размера для возведения стен и других строительных объектов." },
         { id: nanoid(), text: "Палет Кирпичей", img: PaletBlockovRoblox, isWholesale: true, description: "Палет с кирпичами, предназначенный для крупномасштабных строительных работ, с гарантией высокого качества." },

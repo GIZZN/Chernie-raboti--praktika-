@@ -1,88 +1,127 @@
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #2c2c2c, #141414);
-    border: 1px solid #333;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-    position: relative;
-}
+.cardContainer { 
+    display: inline-block; 
+} 
+ 
+.card { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+    background: linear-gradient(135deg, #2c2c2c, #141414); 
+    border: 1px solid #333; 
+    border-radius: 15px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.712); 
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; 
+    position: relative; 
+} 
+ 
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1); 
+    background: linear-gradient(135deg, #333333, #111111); 
+} 
+ 
+.image { 
+    width: 120px; 
+    height: 120px; 
+    object-fit: contain; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    transition: transform 0.3s; 
+} 
+ 
+.card:hover .image { 
+    transform: scale(1.1); 
+} 
+ 
+.text { 
+    font-size: 20px; /* Увеличенный размер шрифта */ 
+    font-weight: 600; 
+    text-align: center; 
+    margin-bottom: 15px; 
+    color: #f1f1f1; 
+    line-height: 1.4; 
+} 
+ 
+.price { 
+    font-size: 16px; /* Уменьшенный размер шрифта */ 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 15px; 
+    opacity: 0; 
+    height: 14px; 
+    transform: scale(0.8) translateY(10px); 
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); 
+    will-change: opacity, transform; 
+    position: relative; 
+} 
+ 
+.card:hover .price { 
+    opacity: 1; 
+    font-size: 18px; /* Немного увеличенный размер шрифта при наведении */ 
+    transform: scale(1) translateY(0); 
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s, 
+                font-size 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s, 
+                transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s; 
+    will-change: opacity, transform, font-size; 
+} 
+ 
+.button, .detailsButton {      
+    padding: 15px 24px; /* Увеличенные отступы */  
+    background: linear-gradient(135deg, #292828, #515052);     
+    color: #ffffff;      
+    border: none;      
+    border-radius: 40px; /* Увеличенный радиус границы */     
+    cursor: pointer;      
+    font-size: 18px; /* Увеличенный размер шрифта */  
+    font-weight: 700;      
+    letter-spacing: 0.5px;     
+    text-transform: uppercase;      
+    text-decoration: none;     
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease;      
+    position: relative;      
+    overflow: hidden;      
+    z-index: 2;      
+    margin: 5px; /* Расстояние между кнопками */   
+}      
+  
+.button::before, .detailsButton::before {   
+    content: '';   
+    position: absolute;   
+    top: 50%;   
+    left: 50%;   
+    width: 300%;   
+    height: 300%;   
+    background: rgba(255, 251, 0, 0); /* Полупрозрачный цвет */   
+    border-radius: 50%; /* Круглая форма */   
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние */   
+    transition: transform 0.5s ease; /* Плавный переход для анимации */   
+}   
+  
+.button:hover::before, .detailsButton:hover::before {   
+    transform: translate(-50%, -50%) scale(1); /* Увеличение круга при наведении */   
+}   
+  
+.button:hover, .detailsButton:hover {   
+    background: linear-gradient(45deg, #ffee00, #ffee00); /* Изменение градиента при наведении */   
+    color: #000000; /* Цвет текста при наведении (черный) */   
+    transform: translateY(-5px); /* Подъем кнопки при наведении */   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Тень при наведении */   
+}   
+  
+.button:active, .detailsButton:active {   
+    transform: translateY(2px); /* Уменьшение кнопки при нажатии */   
+}   
+  
+/* Эффект свечения при наведении */   
+.button:hover, .detailsButton:hover {   
+    box-shadow: 0 0 20px rgba(251, 255, 0, 0.877),    
+                0 0 30px rgba(255, 0, 0, 0.37),
+                0 0 40px rgba(0, 0, 0, 0.548); /* Светящийся эффект */   
+            }
+            
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
-    background: linear-gradient(135deg, #333333, #111111);
-}
 
-.image {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    transition: transform 0.3s;
-}
+  
 
-.card:hover .image {
-    transform: scale(1.1);
-}
-
-.text {
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 15px;
-    color: #f1f1f1;
-    line-height: 1.4;
-}
-
-.button {
-    padding: 12px 20px;
-    background-color: #ffb300;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-    text-transform: uppercase;
-}
-
-.button:hover {
-    background-color: #e6a800;
-    transform: translateY(-3px);
-}
-
-.button:active {
-    background-color: #b88a00;
-    transform: translateY(0);
-}
-
-.detailsButton {
-    display: inline-block;
-    padding: 12px 20px;
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #ffb300;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-}
-
-.detailsButton:hover {
-    background-color: #e6a800;
-    transform: translateY(-3px);
-}
-
-.detailsButton:active {
-    background-color: #b88a00;
-    transform: translateY(0);
-}

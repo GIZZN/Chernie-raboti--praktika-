@@ -75,6 +75,7 @@ export function Registration() {
             className={s.input}
           />
           <input
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
