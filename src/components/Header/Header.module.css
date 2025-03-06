@@ -60,7 +60,7 @@
   }
 
   .logo {
-    width: 30px; /* Уменьшаем логотип */
+    width: 35px;
     height: auto;
   }
 
@@ -129,12 +129,53 @@
   }
 
   .logo {
-    width: 25px;
+    width: 30px;
+    height: auto;
   }
 
   .avatar {
     width: 28px;
     height: 28px;
+  }
+}
+
+/* Для экранов меньше 350px */
+@media (max-width: 350px) {
+  .logo {
+    width: 25px;
+    height: auto;
+  }
+
+  .logoContainer {
+    gap: 6px;
+  }
+
+  .title {
+    font-size: 12px; /* Уменьшаем размер заголовка */
+  }
+
+  .header {
+    padding: 4px 8px; /* Уменьшаем отступы в шапке */
+  }
+
+  .headerSpacer {
+    height: 100px; /* Уменьшаем высоту спейсера */
+  }
+}
+
+/* Для экстремально маленьких экранов */
+@media (max-width: 280px) {
+  .logo {
+    width: 20px;
+    height: auto;
+  }
+
+  .logoContainer {
+    gap: 4px;
+  }
+
+  .title {
+    font-size: 10px;
   }
 }
 
@@ -151,9 +192,42 @@
   gap: 20px;
 }
 
+/* Базовый размер для десктопа */
 .logo {
   width: 130px;
   height: auto;
+}
+
+/* Мобильные устройства */
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 35px !important;
+    height: auto !important;
+  }
+}
+
+/* Маленькие мобильные */
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 30px !important;
+    height: auto !important;
+  }
+}
+
+/* Очень маленькие экраны */
+@media screen and (max-width: 350px) {
+  .logo {
+    width: 25px !important;
+    height: auto !important;
+  }
+}
+
+/* Экстремально маленькие экраны */
+@media screen and (max-width: 280px) {
+  .logo {
+    width: 20px !important;
+    height: auto !important;
+  }
 }
 
 .title {
